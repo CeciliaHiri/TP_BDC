@@ -40,7 +40,7 @@ class Operateur
     private $mail;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private $tarif;
 
@@ -117,12 +117,12 @@ class Operateur
         return $this;
     }
 
-    public function getTarif(): ?int
+    public function getTarif(): ?float
     {
         return $this->tarif;
     }
 
-    public function setTarif(int $tarif): self
+    public function setTarif(float $tarif): self
     {
         $this->tarif = $tarif;
 
