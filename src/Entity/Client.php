@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Client
      * @ORM\Column(type="date")
      */
     private $date_debut_contrat;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Consommation::class, mappedBy="client")
+     */
+    private $charge;
+
+    public function __construct()
+    {
+        $this->charge = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,36 @@ class Client
     public function setDateDebutContrat(\DateTimeInterface $date_debut_contrat): self
     {
         $this->date_debut_contrat = $date_debut_contrat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Consommation[]
+     */
+    public function getCharge(): Collection
+    {
+        return $this->charge;
+    }
+
+    public function addCharge(Consommation $charge): self
+    {
+        if (!$this->charge->contains($charge)) {
+            $this->charge[] = $charge;
+            $charge->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharge(Consommation $charge): self
+    {
+        if ($this->charge->removeElement($charge)) {
+            // set the owning side to null (unless already changed)
+            if ($charge->getClient() === $this) {
+                $charge->setClient(null);
+            }
+        }
 
         return $this;
     }
