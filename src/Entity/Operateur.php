@@ -25,7 +25,7 @@ class Operateur
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=400)
+     * @ORM\Column(type="string", nullable=true, length=400)
      */
     private $adresse;
 
@@ -40,17 +40,17 @@ class Operateur
     private $mail;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      */
     private $tarif;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $date_fin_contrat;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $date_debut_contrat;
 

@@ -25,7 +25,7 @@ class Station
     private $nom_station;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $date_mise_en_service;
 
@@ -40,12 +40,12 @@ class Station
     private $adresse_station;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable = true)
      */
     private $tarification;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length =255, nullable = true)
      */
     private $localisation;
 
@@ -58,6 +58,21 @@ class Station
      * @ORM\OneToMany(targetEntity=Consommation::class, mappedBy="station")
      */
     private $utilise;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $id_station;
+
+    /**
+     * @ORM\Column(type="float", length=255, nullable=true)
+     */
+    private $positionx;
+
+    /**
+     * @ORM\Column(type="float", length=255, nullable=true)
+     */
+    private $positiony;
 
     public function __construct()
     {
@@ -129,12 +144,12 @@ class Station
         return $this;
     }
 
-    public function getLocalisation(): ?float
+    public function getLocalisation(): ?string
     {
         return $this->localisation;
     }
 
-    public function setLocalisation(float $localisation): self
+    public function setLocalisation(string $localisation): self
     {
         $this->localisation = $localisation;
 
@@ -179,6 +194,42 @@ class Station
                 $utilise->setStation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIdStation(): ?string
+    {
+        return $this->id_station;
+    }
+
+    public function setIdStation(string $id_station): self
+    {
+        $this->id_station = $id_station;
+
+        return $this;
+    }
+
+    public function getPositionx(): ?float
+    {
+        return $this->positionx;
+    }
+
+    public function setPositionx(?float $positionx): self
+    {
+        $this->positionx = $positionx;
+
+        return $this;
+    }
+
+    public function getPositiony(): ?float
+    {
+        return $this->positiony;
+    }
+
+    public function setPositiony(?float $positiony): self
+    {
+        $this->positiony = $positiony;
 
         return $this;
     }
