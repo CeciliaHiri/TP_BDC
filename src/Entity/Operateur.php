@@ -182,4 +182,5 @@ class Operateur
 
         return $this;
     }
+
 }
