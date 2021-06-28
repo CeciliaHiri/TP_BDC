@@ -11,7 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class StationCrudController extends AbstractCrudController
@@ -32,16 +32,21 @@ class StationCrudController extends AbstractCrudController
 
      public function configureFields(string $pageName): iterable
     {
-        yield IdField::new('id');
-        yield TextField::new('nom_station');
-        yield TextField::new('id_station');
-        yield IntegerField::new('Nb_bornes');
-        yield TextField::new('adresse_station');
-        yield NumberField::new('positionx');
-        yield NumberField::new('positiony');
+        yield IdField::new('id')->onlyOnIndex();
+        yield TextField::new('nom_station')->onlyOnIndex();
+        yield TextField::new('id_station')->onlyOnIndex();
+        yield IntegerField::new('Nb_bornes')->onlyOnIndex();
+        yield TextField::new('adresse_station')->onlyOnIndex();
+        yield NumberField::new('positionx')->onlyOnIndex();
+        yield NumberField::new('positiony')->onlyOnIndex();
+        yield TextField::new('localisation')->onlyWhenCreating();
         yield TextField::new('tarification')->hideOnIndex();
-        yield TextField::new('localisation')->hideOnIndex();
-        yield DateField::new('date_mise_en_service')->hideOnIndex();
+        yield DateTimeField::new('date_mise_en_service', 'Date de Mise en Service')
+            ->setFormTypeOptions([
+                'html5' => true,
+                'years' => range(date('Y'), date('Y') + 2),
+                'widget' => 'single_text',
+            ])->hideOnIndex();
               
     }
 }
