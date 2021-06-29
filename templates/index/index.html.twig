@@ -4,9 +4,9 @@
 
 {% block main %}
 <main>
-         <div class="column" id="container1">
+    <div class="column" id="container1">
           <!-- zone de connexion -->
-          <div class='ml-2 myform'>
+        <div class='ml-2 myform'>
           <form action="verification.php" method="POST">
             <h2>Connexion</h2>
             <label><b>Nom d'utilisateur</b></label>
@@ -18,18 +18,21 @@
             <input type="submit" id='submit' value='SE CONNECTER' >
             
            </form>
-           <div class="bottom text-center mb-5">
-                    <a href="{{ path('client') }}" class="sm-text mx-auto mb-3">
-                     <button class="btn btn-white ml-2">Créez votre compte</button>
-                    </a>
-                </div>
         </div>
-         </div>
+        </div>
+
+        
+        
 
        <div class="column" id="col2">
         <h1>Charger votre voiture électrique n'importe ou avec nous</h1>
         <h3>Trouver des bornes pres de chez vous et apprennez-en plus sur votre consomation grace à notre application</h3>
        </div>
        </div>  
+           <div class="bottom text-center mb-5">
+                    <a href="{{ path('client') }}" class="sm-text mx-auto mb-3">
+                     <button class="btn btn-white ml-2" style="width:200">Créez votre compte</button>
+                    </a>
+           </div>
      </main>
 {% endblock %}
