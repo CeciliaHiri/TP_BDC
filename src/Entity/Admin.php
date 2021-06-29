@@ -46,6 +46,11 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $lastName;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Client::class, inversedBy="admin", cascade={"persist", "remove"})
+     */
+    private $client;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -161,4 +166,16 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         } else if (!empty($this->lastName)) { return $this->lastName;
         }
         return $this->username; }
+
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
 }
