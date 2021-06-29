@@ -2,11 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}BDC{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="./landingpage.css">
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +18,47 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+          {% block header %}<header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">BDC</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Acceuil</a></li>
+          <li><a href="#">mon espace</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Map</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>{% endblock %}
+         <main>
+         <div class="column" id="container1">
+          <!-- zone de connexion -->
+          <form class="ml-2" action="verification.php" method="POST">
+            <h2>Connexion</h2>
+            <label><b>Nom d'utilisateur</b></label>
+            <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+            <label><b>Mot de passe</b></label>
+            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+            <input type="submit" id='submit' value='SE CONNECTER' >
+            <div class="bottom text-center mb-5">
+                    <p href="{{ path('nom_de_la_route', { 'nom_param1': valeur_param1 }) }}" class="sm-text mx-auto mb-3">Vous n'avez pas encore de compte?<button class="btn btn-white ml-2">Créez votre compte</button></p>
+                </div>
+           </form>
+         </div>
+
+       <div class="column" id="col2">
+        <h1>Charger votre voiture électrique n'importe ou avec nous</h1>
+        <h3>Trouver des bornes pres de chez vous et apprennez-en plus sur votre consomation grace à notre application</h3>
+       </div>
+       </div>  
+     </main>
+        
+        {% endblock %}
     </body>
 </html>
