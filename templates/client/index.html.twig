@@ -33,6 +33,9 @@
 
                                 <div class="form-group row">
                                     <div class="col-md-4">
+                                    <div class="form-error">
+                                    {{ form_errors(client_form.nom) }}
+                                    </div>
                                     {{ form_label(client_form.nom,"Nom")}}
                                     </div>
                                     <div class="col-md-8">
@@ -42,6 +45,9 @@
 
                                 <div class="form-group row">
                                     <div class="col-md-4">
+                                    <div class="form-error">
+                                    {{ form_errors(client_form.prenom) }}
+                                    </div>
                                     {{ form_label(client_form.prenom,"Prénom")}}
                                     </div>
                                     <div class="col-md-8">
@@ -51,6 +57,9 @@
 
                                 <div class="form-group row">
                                     <div class="col-md-4">
+                                    <div class="form-error">
+                                    {{ form_errors(client_form.mail) }}
+                                    </div>
                                     {{ form_label(client_form.mail,"Adresse Mail")}}
                                     </div>
                                     <div class="col-md-8">
@@ -60,6 +69,9 @@
 
                                 <div class="form-group row">
                                      <div class="col-md-4">
+                                     <div class="form-error">
+                                     {{ form_errors(client_form.adresse) }}
+                                     </div>
                                     {{ form_label(client_form.adresse,"Adresse Postale")}}
                                     </div>
                                     <div class="col-md-8">
@@ -69,6 +81,9 @@
 
                                 <div class="form-group row">
                                     <div class="col-md-4">
+                                    <div class="form-error">
+                                    {{ form_errors(client_form.tel) }}
+                                    </div>
                                     {{ form_label(client_form.tel,"Numero de Telephone")}}
                                     </div>
                                     <div class="col-md-8">
@@ -118,10 +133,7 @@
                                           </div>
 
                                         <div class="col-md-6 offset-md-4 mt-4 d-flex justify-content-center">
-                                        {{ form_label(client_form.validate,"S'inscrire")}}
-                                        <button type="submit" class="btn btn-primary">
-                                        s'inscrire
-                                        </button>
+                                         {{ form_widget(client_form.validate, {"attr":{"class":"btn btn-primary" }})}}
                                     </div>
                                     </div>
                                 </div>
