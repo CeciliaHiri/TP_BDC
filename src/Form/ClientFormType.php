@@ -22,10 +22,9 @@ class ClientFormType extends AbstractType
             ->add('username', TextType::class,['mapped' => false])
             ->add('password', RepeatedType::class,[
                 'type' => PasswordType::class,
-                'invalid message' => 'le mot de passe est différent',
+                'invalid_message' => 'le mot de passe est différent',
+                'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_verification' => ['label' => 'entrez votre mot de passe'],
-                'second_verification' => ['entrez de nouveau votre mot de passe'],
                 'mapped' => false],)
             ->add('nom', TextType::class,['label' => 'nom'])
             ->add('prenom',TextType::class,['label' => 'prenom'])

@@ -7,6 +7,7 @@ use App\Form\ClientFormType;
 use App\Repository\ClientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ClientController extends AbstractController
@@ -14,7 +15,7 @@ class ClientController extends AbstractController
     /**
      * @Route("/client", name="client")
      */
-    public function index(Request $request, Client $client, CientRepository $clientRepository): Response
+    public function index(Request $request, ClientRepository $clientRepository): Response
     {
         $client = new Client();
         $form = $this->createForm(ClientFormType::class, $client);
