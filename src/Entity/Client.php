@@ -46,7 +46,7 @@ class Client
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer", min="10", max="14")
+     * @ORM\Column(type="integer")
      * .
      * @Assert\NotBlank
      * @Assert\Length(min=10, max=14)
@@ -56,8 +56,6 @@ class Client
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank
-     * @Assert\Date
      */
     private $date_debut_contrat;
 

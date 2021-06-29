@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Client;
+use App\Entity\Admin;
 use App\Form\ClientFormType;
 use App\Repository\ClientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,20 +11,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ClientController extends AbstractController
 {
-   
-    private $twig;
     private $entityManager;
+    private $hasher;
 
-    public function __construct(Environment $twig, EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, UserPasswordHasherInterface $hasher)
     {
-         $this->twig = $twig;
-         $this->entityManager = $entityManager;
+        $this->entityManager = $entityManager;
+        $this->hasher = $hasher;
     }
 
-      /**
+    /**
      * @Route("/client", name="client")
      */
 
@@ -33,13 +34,24 @@ class ClientController extends AbstractController
         $client = new Client();
         $form = $this->createForm(ClientFormType::class, $client);
         $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $client->setClient($client);
-        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $date = new \DateTime('now');
+            $client->setDateDebutContrat($date);
             $this->entityManager->persist($client);
             $this->entityManager->flush();
-        
-                return $this->redirectToRoute('conference', ['slug' => $conference->getSlug()]);
+
+            //créée l'utilisateur
+            $user = new Admin();
+            $user->setUsername($request->request->get('username'));
+            $user->setClient($client);
+            $pwd = (string)$request->request->get('password');
+            $user->setPassword($this->hasher->hashPassword(
+                $user,
+                $pwd
+            ));
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('client');
         }
 
 

@@ -19,7 +19,7 @@ class ClientFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('identifiant', TextType::class,['mapped' => false])
+            ->add('username', TextType::class,['mapped' => false])
             ->add('password', RepeatedType::class,[
                 'type' => PasswordType::class,
                 'invalid_message' => 'le mot de passe est différent',
