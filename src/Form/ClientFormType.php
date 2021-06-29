@@ -19,20 +19,18 @@ class ClientFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class,['mapped' => false])
+            ->add('identifiant', TextType::class,['mapped' => false])
             ->add('password', RepeatedType::class,[
                 'type' => PasswordType::class,
                 'invalid_message' => 'le mot de passe est différent',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
                 'mapped' => false],)
-            ->add('nom', TextType::class,['label' => 'nom'])
-            ->add('prenom',TextType::class,['label' => 'prenom'])
+            ->add('nom', TextType::class,['label' => 'Nom'])
+            ->add('prenom',TextType::class,['label' => 'Prénom'])
             ->add('mail',EmailType::class)
-            ->add('adresse',TextType::class,['label' => 'adresse'])
-            ->add('tel',TelType::class,['label' => 'tel'])
-            ->add('date_debut_contrat', DateType::class)
-
+            ->add('adresse',TextType::class,['label' => 'Adresse'])
+            ->add('tel',TelType::class,['label' => 'Tél'])
             ->add('validate', SubmitType::class)
         ;
     }
