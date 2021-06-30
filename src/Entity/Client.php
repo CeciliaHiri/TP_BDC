@@ -22,26 +22,34 @@ class Client
 
     /**
      * @ORM\Column(type="string", length=70)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(
+     *  message="Veuillez indiquer votre Nom"
+     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=70)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(
+     *  message="Veuillez indiquer votre Prénom"
+     * )
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=150)
      * @Assert\NotBlank
-     * @Assert\Email
+     * @Assert\Email(
+     *  message="Veuillez indiquer un email valide"
+     * )
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(
+     *  message="Veuillez indiquer une adresse valide"
+     * )
      */
     private $adresse;
 
@@ -50,7 +58,9 @@ class Client
      * .
      * @Assert\NotBlank
      * @Assert\Length(min=10, max=14)
-     * @Assert\Type(type="integer")
+     * @Assert\Type(type="integer")(
+     *  message="Veuillez indiquer un téléphone 0745678930 ou à l'international 003367883421"
+     * )
      */
     private $tel;
 
