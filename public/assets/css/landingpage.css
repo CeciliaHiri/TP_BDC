@@ -81,7 +81,7 @@ body {
     width: 50%;
   }
 
-  .btn{
+  .cb{
     position:relative;
     top: 30px;
 
@@ -93,6 +93,6 @@ body {
 
 
   .shadow{
-    background:grey;
-    opacity:0.6;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px 70px 70px 100px;
   }

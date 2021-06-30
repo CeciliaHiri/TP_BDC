@@ -16,7 +16,7 @@ class CarteController extends AbstractController
     public function map(StationRepository $station): Response
     {
         $station = $this->getDoctrine()
-        ->getRepository('StationRepository')
+        ->getRepository(Station::class)
         ->findAll();
 
         if (!$station) {
