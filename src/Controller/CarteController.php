@@ -13,10 +13,24 @@ class CarteController extends AbstractController
     /**
      * @Route("/map", name="map")
      */
-    public function map($localisation, $posx, $posy, $adresse, $nom): Response
+    public function map(StationRepository $station): Response
     {
         return $this->render('carte/index.html.twig', [
             'controller_name' => 'CarteController',
         ]);
+
+        $station = $this->getDoctrine()
+        ->getRepository('StationRepository')
+        ->findAll();
+
+        if (!$station) {
+        throw $this->createNotFoundException(
+            'No station found'
+        );
+        }
+
+        return $this->render('carte/index.html.twig',
+        array('station' => $station)
+        );
     }
 }
