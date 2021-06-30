@@ -93,20 +93,19 @@
                                   {{ form_widget(client_form.validate, {"attr":{"class":"btn btn-primary" }})}}
                                   {{ form_end(client_form) }}
                                 
-                                 <div class="justify-content-around mb-5 m-3">
-                                        <button type="button" class="btn-primary cb" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-mastercard fa-2x"></i></button>
-                                        <button type="button"class="btn-primary cb" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-visa fa-2x"></i></button>
-                                        <button type="button" class="btn-primary cb" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-paypal fa-2x"></i></button>
-                                        <button type="button" class="btn-primary cb" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-amex fa-2x"></i></button>
                                  
-
-                                 <div class="form-group row">
-                                        <button type="button" class="btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-mastercard fa-2x"></i></button>
-                                        <button type="button"class="btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-visa fa-2x"></i></button>
-                                        <button type="button" class="btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-paypal fa-2x"></i></button>
-                                        <button type="button" class="btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-amex fa-2x"></i></button>
->>>>>>> 89770ef326b9abfc8cda735ab3ec8176deeed325
+                                        <button type="button" class="cb" data-toggle="modal" data-target="#exampleModal"><i class="fab fa-cc-mastercard fa-2x"></i></button>
+                                        <button type="button"class="cb" data-toggle="modal" data-target="#exampleModal"><i class="fab fa-cc-visa fa-2x"></i></button>
+                                        <button type="button" class="cb" data-toggle="modal" data-target="#exampleModal"><i class="fab fa-cc-paypal fa-2x"></i></button>
+                                        <button type="button" class="cb" data-toggle="modal" data-target="#exampleModal"><i class="fab fa-cc-amex fa-2x"></i></button>
+                                
                                 </div>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
                                         <!-- modal -->
                                         <div class="col-md-6 offset-md-4"><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
@@ -134,8 +133,8 @@
                                                   </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                  <button type="button" class="btn btn-secondary fermer" data-dismiss="modal">Fermer</button>
-                                                  <button type="button" class="btn btn-primary payer">Payer</button>
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                                  <button type="button" class="btn btn-primary">Payer</button>
                                                 </div>
                                               </div>
                                             </div>
@@ -145,14 +144,6 @@
                                         
                                     </div>
                                     </div>
-                                </div>
-                            
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-
 </main>
     
 {% endblock %}
