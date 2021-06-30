@@ -44,6 +44,8 @@ class ClientController extends AbstractController
             $user = new Admin();
             $user->setUsername($request->request->get('username'));
             $user->setClient($client);
+            //bien définir le rôle pour ne pas que l'utilisateur puisse avoir les droits de l'admin
+            $user->setRoles(['ROLE_USER']);
             $pwd = (string)$request->request->get('password');
             $user->setPassword($this->hasher->hashPassword(
                 $user,
