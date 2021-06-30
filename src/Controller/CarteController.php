@@ -15,10 +15,6 @@ class CarteController extends AbstractController
      */
     public function map(StationRepository $station): Response
     {
-        return $this->render('carte/index.html.twig', [
-            'controller_name' => 'CarteController',
-        ]);
-
         $station = $this->getDoctrine()
         ->getRepository('StationRepository')
         ->findAll();
