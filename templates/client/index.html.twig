@@ -90,7 +90,8 @@
                                       {{ form_widget(client_form.tel, {"attr":{"class":"form_control" }})}} 
                                     </div>
                                 </div>
-
+                                 {{ form_widget(client_form.validate, {"attr":{"class":"btn btn-primary" }})}}
+                                  {{ form_end(client_form) }}
 
                                  <div class="form-group row">
                                         <button type="button" class="btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="btn fab fa-cc-mastercard fa-2x"></i></button>
@@ -133,11 +134,11 @@
                                           </div>
 
                                         <div class="col-md-6 offset-md-4 mt-4 d-flex justify-content-center">
-                                         {{ form_widget(client_form.validate, {"attr":{"class":"btn btn-primary" }})}}
+                                        
                                     </div>
                                     </div>
                                 </div>
-                            {{ form_end(client_form) }}
+                            
                         </div>
                     </div>
             </div>
