@@ -57,7 +57,7 @@ class Client
      * @ORM\Column(type="integer")
      * .
      * @Assert\NotBlank
-     * @Assert\Length(min=10, max=14)
+     * @Assert\Length(min=9, max=14)
      * @Assert\Type(type="integer")(
      *  message="Veuillez indiquer un téléphone 0745678930 ou à l'international 003367883421"
      * )
