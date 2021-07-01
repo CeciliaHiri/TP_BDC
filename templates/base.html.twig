@@ -5,10 +5,8 @@
         <title>{% block title %}BDC{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-       
         {% block stylesheets %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/landingpage.css">
@@ -17,7 +15,8 @@
     crossorigin="" />
         <style type="text/css">
         #maCarte {
-          height: 400px;
+          height: 600px;
+          width: 100%;
         }
       </style>
         {% endblock %}
@@ -38,12 +37,12 @@
           <li class="active"><a href="{{ path('index') }}">Acceuil</a></li>
           <li><a href="{{ path('espace_profile_conso') }}">Espace</a></li>
           <li><a href="#">Contact</a></li>
-          <li><a href="{{ path('map') }}">Map</a></li>
+          <li><a href="#maCarte">Les stations</a></li>
         </ul>
       </div>
     </nav>
   </header>
-  {% block main %}       
+  {% block main %}
    {% endblock %}
     </body>
 </html>
