@@ -1,20 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EspaceProfileController!{% endblock %}
+{% block title %}Espace Client - Bornes Electriques{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
+
+{# {% for client in clients %}
+  {{ clients.prenom }}
+{% endfor %} #}
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/mimic/Documents/ecole_developpement_web/Diginamic/19.BDC_symfony/tp_bdc/src/Controller/EspaceProfileController.php'|file_link(0) }}">src/Controller/EspaceProfileController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/mimic/Documents/ecole_developpement_web/Diginamic/19.BDC_symfony/tp_bdc/templates/espace_profile/index.html.twig'|file_link(0) }}">templates/espace_profile/index.html.twig</a></code></li>
-    </ul>
+    <h1>Bonjour</h1>
 </div>
+    <h3>Bienvenue dans votre espace</h3>
+
+<main>
+    <div class="card" style="width:20rem;">
+        <img class="card-img-top" src="./../../public/assets/images/profile.gif/100px180/" alt="Card image profile">
+            <div class="card-body">
+                <h5 class="card-title">Mathieu</h5>
+                <p class="card-text">Date contrat :  </p>
+                <a href="#" class="btn btn-success">Gérer mes informations</a>
+            </div>
+    </div>
+</main>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+        <h5 class="card-header">Consulter mes factures</h5>
+      <div class="card-body">
+        <h5 class="card-title">Ma facture du mois</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes factures</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+        <h5 class="card-header">Mes bornes favorites</h5>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
+      </div>
+    </div>
+  </div>
+</div>
+    
+   
+      
+      {% for conso in consommations %}
+      {{ conso.quantite }}
+      {% endfor %}
+
+      {% for station in stations %}
+      {{ station.nom_station }}
+      {% endfor %}
+
 {% endblock %}

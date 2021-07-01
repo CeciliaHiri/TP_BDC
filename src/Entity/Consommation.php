@@ -18,11 +18,6 @@ class Consommation
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $numero;
-
-    /**
      * @ORM\Column(type="date")
      */
     private $date_debut_contrat;
@@ -43,11 +38,6 @@ class Consommation
     private $date_heure_deconnexion;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $id_station_local;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Station::class, inversedBy="utilise")
      */
     private $station;
@@ -65,18 +55,6 @@ class Consommation
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNumero(): ?int
-    {
-        return $this->numero;
-    }
-
-    public function setNumero(int $numero): self
-    {
-        $this->numero = $numero;
-
-        return $this;
     }
 
     public function getDateDebutContrat(): ?\DateTimeInterface
@@ -123,18 +101,6 @@ class Consommation
     public function setDateHeureDeconnexion(\DateTimeInterface $date_heure_deconnexion): self
     {
         $this->date_heure_deconnexion = $date_heure_deconnexion;
-
-        return $this;
-    }
-
-    public function getIdStationLocal(): ?string
-    {
-        return $this->id_station_local;
-    }
-
-    public function setIdStationLocal(string $id_station_local): self
-    {
-        $this->id_station_local = $id_station_local;
 
         return $this;
     }
