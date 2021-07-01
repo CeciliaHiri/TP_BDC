@@ -1,59 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Espace Client - Bornes Electriques{% endblock %}
+{% block title %}Espace Client - Bornes Electriques
+{% endblock %}
 
 {% block main %}
 
-{# {% for client in clients %}
-  {{ clients.prenom }}
-{% endfor %} #}
+	<div class="example-wrapper">
+		<h1>Bonjour</h1>
+	</div>
 
-<div class="example-wrapper">
-    <h1>Bonjour</h1>
-</div>
-    <h3>Bienvenue dans votre espace</h3>
+	<h3>Bienvenue dans votre espace</h3>
 
-<main>
-    <div class="card" style="width:20rem;">
-        <img class="card-img-top" src="./../../public/assets/images/profile.gif/100px180/" alt="Card image profile">
-            <div class="card-body">
-                <h5 class="card-title">Mathieu</h5>
-                <p class="card-text">Date contrat :  </p>
-                <a href="#" class="btn btn-success">Gérer mes informations</a>
-            </div>
-    </div>
-</main>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-        <h5 class="card-header">Consulter mes factures</h5>
-      <div class="card-body">
-        <h5 class="card-title">Ma facture du mois</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes factures</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-        <h5 class="card-header">Mes bornes favorites</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
-      </div>
-    </div>
-  </div>
-</div>
-    
-   
-      
-      {% for conso in consommations %}
-      {{ conso.quantite }}
-      {% endfor %}
+	<main>
+		<div class="card" style="width:20rem;">
+			<img class="card-img-top" src="./../../public/assets/images/profile.gif/100px180/" alt="Card image profile">
+			<div class="card-body">
+				<h5 class="card-title">Mathieu</h5>
+				<p class="card-text">Date contrat :
+				</p>
+				<a href="#" class="btn btn-success">Gérer mes informations</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<h5 class="card-header">Consulter mes factures</h5>
+					<div class="card-body">
+						<h5 class="card-title">Ma facture du mois</h5>
+						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+						<a href="{{ path('espace_profile') }}" class="btn btn-success">Mes factures</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<h5 class="card-header">Mes bornes favorites</h5>
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+						<a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 
-      {% for station in stations %}
-      {{ station.nom_station }}
-      {% endfor %}
+
+	{% for conso in consommations %}
+		{{ conso.quantite }}
+	{% endfor %}
 
 {% endblock %}
