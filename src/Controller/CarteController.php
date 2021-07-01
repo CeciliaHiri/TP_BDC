@@ -17,9 +17,6 @@ class CarteController extends AbstractController
     {
         $station = $station->findAll();
 
-        return $this->render(
-            'carte/index.html.twig',
-            array('station' => $station)
-        );
+        return $this->render('carte/index.html.twig',array('station' => $station));
     }
 }
