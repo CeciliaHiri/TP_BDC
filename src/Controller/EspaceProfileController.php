@@ -9,20 +9,20 @@ use App\Repository\StationRepository;
 use App\Repository\ConsommationRepository;
 use App\Repository\ClientRepository;
 
-
 class EspaceProfileController extends AbstractController
 {
     /**
      * @Route("/user/espaceProfile", name="espace_profile")
      */
-    public function index(): Response
+    public function index(ConsommationRepository $consommationRepository): Response
     {
-        $user = $this->security->getUser();
+        $user = $this->getUser();
         $client = $user->getClient();
+        $conso = $consommationRepository->findBy(['client' => $client]);
 
         return $this->render('espace_profile/index.html.twig', [
-            'controller_name' => 'Espace Client - Bornes Electriques',
-
+            'conso' => $conso,
+            'client' => $client,
         ]);
     }
 
@@ -31,7 +31,7 @@ class EspaceProfileController extends AbstractController
      */
     public function DataConso(ConsommationRepository $consommationRepository): Response
     {
-        return $this->render('espace_profile/index.html.twig',[
+        return $this->render('espace_profile/index.html.twig', [
             'consommations' => $consommationRepository->findAll(),
         ]);
     }
@@ -39,27 +39,13 @@ class EspaceProfileController extends AbstractController
     /**
      * @Route("/user/espaceProfileStation", name="espace_profile_station")
      */
-    public function DataStation(StationRepository $stationRepository): Response
+    /*public function DataStation(StationRepository $stationRepository): Response
     {
-        return $this->render('espace_profile/index.html.twig',[
-            'nom_station' => $StationRepository->findBy(['station' => $station]),
-            'adresse_station' => $StationRepository->findBy(['station' => $station]),
-            'tarification' => $StationRepository->findBy(['station' => $station]),
+        return $this->render('espace_profile/index.html.twig', [
+            'nom_station' => $stationRepository->findBy(['station' => $station]),
+            'adresse_station' => $stationRepository->findBy(['station' => $station]),
+            'tarification' => $stationRepository->findBy(['station' => $station]),
 
         ]);
-    }
-
-    /**
-     * @Route("/user/espaceProfileStation", name="espace_profile_station")
-     */
-    public function DataClient(Clients $clients, ClientRepository $clientRepository): Response
-    {
-        return $this->render('espace_profile/index.html.twig',[
-            'prenom' => $ClientRepository->findBy(['clients' => $clients]),
-
-
-        ]);
-    }
-
-
+    }*/
 }
