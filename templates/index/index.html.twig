@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue sur ChqrgePower{% endblock %}
+{% block title %}Bienvenue sur ChargePower{% endblock %}
 
 {% block main %}
 <main>
     <div class="column" id="container1">
           <!-- zone de connexion -->
         <div class='ml-2 myform'>
-          <form action="verification.php" method="POST">
+          <form action="user/espaceProfileConso" method="POST">
             <h2>Connexion</h2>
             <label><b>Nom d'utilisateur</b></label>
             <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
