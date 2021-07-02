@@ -12,10 +12,10 @@
 	<h3>Bienvenue dans votre espace</h3>
 
 <main>
-<div class="container">
-  <div class="row">
-  <div class="col-lg-8 col-sm-12 mb-4">
-    <div class="card shadow-lg" style="width:25rem;">
+<div class="container row d-flex">
+  <div class="col-4">
+    <div class=" mb-2">
+      <div class="card shadow-lg" style="width:25rem;">
         <img class="card-img-top" src="../assets/images/profile.png" alt="Card image profile">
             <div class="card-body">
                 {# <h5 class="card-title text-success">	{{ consommation.quantite }}</h5> #}
@@ -28,58 +28,128 @@
                 <p class="card-text">Date de début de contrat :  </p>
                 <a href="#" class="btn btn-success">Gérer mes informations</a>
             </div>
-    </div>
-  </div>
-  </div>
-
-
-
-
-<div class="row">
-  <div class="col-lg-2 col-sm-12 mb-4">
-    <div class="card shadow-lg">
-        <h5 class="card-header">Consulter mes factures</h5>
-      <div class="card-body">
-        <h5 class="card-title">Ma facture du mois</h5>
-        <a href="{{ path('espace_profile') }}" class="card-text">Voir</a><br>
-        <a href="{{ path('espace_profile') }}" class="btn btn-success mt-3">Mes factures</a>
       </div>
     </div>
   </div>
 
-  
 
-<div class="row">
-  <div class="col-lg-2 col-sm-12 mb-4">
-    <div class="card shadow-lg">
+  <div class="col-4">
+    <div class="mb-4">
+      <div class="card shadow-lg">
+          <h5 class="card-header">Consulter mes factures</h5>
+            <div class="card-body">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+    <!-- Première facture -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Facture - Juin 2021
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <h4>Facture du 01/06/21 au 30/06/21</h4><br>
+          Véhicule : Tesla CyberTruck <br>
+          Consommation : 80,7 kWh <br>
+          Temps de Charge : 18h <br>
+          Montant TTC : 58,31€
+        </div>
+      </div>
+    </div>
+    <!-- Deuxième facture -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Facture - Mai 2021
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <h4>Facture du 01/05/21 au 31/05/21</h4><br>
+          Véhicule : BMW i4 <br>
+          Consommation : 80,7 kWh <br>
+          Temps de Charge : 14h <br>
+          Montant TTC : 39,96€
+        </div>
+      </div>
+    </div>
+    <!-- Troisième facture -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Facture - Avril 2021
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <h4>Facture du 01/04/21 au 30/04/21</h4><br>
+          Véhicule : BMW i8 <br>
+          Consommation : 80,7 kWh <br>
+          Temps de Charge : 16h <br>
+          Montant TTC : 45,56€
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-4">
+    <div class="mb-4">
+      <div class="card shadow-lg">
         <h5 class="card-header">Ma consommation d'énergie</h5>
-      <div class="card-body">
-        	{% for conso in consos %}
-            <li>
-              {{ conso.quantite }}
-            </li>
-              <li>
-              {{ conso.dateHeureConnexion|format_datetime('medium', 'short') }}
-            </li>
-              <li>
-              {{ conso.dateDebutContrat|format_datetime('medium', 'short') }}
-            </li>
-          {% endfor %}
-      </div>
-    </div>
-  </div>
+          <div class="card-body">
+            <table class="table">
+            	{% for conso in consos %}
+              <thead>
+                <tr>
+                <th scope="col">Catégorie</th>
+                <th scope="col">Energie consommée  </th>
+                <th scope="col">Date et heure connexion  </th>
+                <th scope="col">Date et heure déconnexion</th>
+                </tr>
+              </thead>
+                <tr>
+                {# <th scope="row">{{ conso.station_id }}</th> #}
+                <td>{{ conso.quantite }}</td>
+                <td>{{ conso.dateHeureConnexion|format_datetime('medium', 'short') }}</td>
+                <td>{{ conso.dateDebutContrat|format_datetime('medium', 'short') }}</td>
+                </tr>
 
-  <div class="col-lg-4 col-sm-12 mb-4">
-    <div class="card shadow-lg">
-        <h5 class="card-header">Mes bornes favorites</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
+              <tbody> 
+           
+              </thead>
+               {% endfor %}
+            </table>
       </div>
     </div>
   </div>
 </div>
+  
+  
+
+  <div class="col-4">
+    <div class="mb-4">
+      <div class="card shadow-lg">
+        <h5 class="card-header">Mes bornes favorites</h5>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>      
 </main> 
