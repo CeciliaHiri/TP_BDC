@@ -5,6 +5,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  margin-top: 82px;
 }
 
 .top-nav-collapse {
@@ -73,7 +74,7 @@ body {
   .column {
     float: left;
     width: 30%;
-    margin: 10% 4% 0 5%;
+    margin: 10% 4% 10% 5%;
   }
 
   #col2 {
@@ -91,12 +92,22 @@ body {
     font-size:30px;
   }
 
-
   .shadow{
     background-color: rgba(0, 0, 0, 0.4);
     padding: 15px 70px 70px 100px;
   }
 
-  .card-img-top {
-    width: 80%;
+  .padding-0 {
+    padding-bottom: 0;
+  }
+
+  .navbar ul li a {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .navbar ul li a:hover {
+    background: #fff;
+    color: #000;
+    font-size: 2rem;
   }
