@@ -15,24 +15,38 @@ class EspaceProfileController extends AbstractController
     /**
      * @Route("/user/espaceProfile", name="espace_profile")
      */
-    public function index(): Response
+    public function index(ConsommationRepository $consommationRepository): Response
     {
         $user = $this->getUser();
-        if (getUser === NULL) {
-            # code...
-        }
-        //si getUser === NULL, retour login
         $client = $user->getClient();
-        $conso = $consommationRepository->findBy(['client' =>$client]);
-      
+        $conso = $consommationRepository->findBy(['client' => $client]);
 
         return $this->render('espace_profile/index.html.twig', [
             'conso' => $conso,
-            'client' =>$client,
-
-
+            'client' => $client,
         ]);
     }
 
+    /**
+     * @Route("/user/espaceProfileConso", name="espace_profile_conso")
+     */
+    public function DataConso(ConsommationRepository $consommationRepository): Response
+    {
+        return $this->render('espace_profile/index.html.twig', [
+            'consommations' => $consommationRepository->findAll(),
+        ]);
+    }
 
+    /**
+     * @Route("/user/espaceProfileStation", name="espace_profile_station")
+     */
+    /*public function DataStation(StationRepository $stationRepository): Response
+    {
+        return $this->render('espace_profile/index.html.twig', [
+            'nom_station' => $stationRepository->findBy(['station' => $station]),
+            'adresse_station' => $stationRepository->findBy(['station' => $station]),
+            'tarification' => $stationRepository->findBy(['station' => $station]),
+
+        ]);
+    }*/
 }

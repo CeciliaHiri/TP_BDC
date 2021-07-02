@@ -6,6 +6,7 @@ use App\Repository\StationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=StationRepository::class)
@@ -16,26 +17,31 @@ class Station
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"listStation"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Groups({"listStation"})
      */
     private $nom_station;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups({"listStation"})
      */
     private $date_mise_en_service;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"listStation"})
      */
     private $Nb_bornes;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"listStation"})
      */
     private $adresse_station;
 
@@ -66,11 +72,13 @@ class Station
 
     /**
      * @ORM\Column(type="float", length=255, nullable=true)
+     * @Groups({"listStation"})
      */
     private $positionx;
 
     /**
      * @ORM\Column(type="float", length=255, nullable=true)
+     * @Groups({"listStation"})
      */
     private $positiony;
 
