@@ -58,7 +58,7 @@ class ClientController extends AbstractController
             ));
             $this->entityManager->persist($user);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('');
         }
         
         return $this->render('client/index.html.twig', [
