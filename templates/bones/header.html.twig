@@ -20,15 +20,24 @@
 				</li>
 			</ul>
 			<div class="dropdown">
+			
 				<a class="d-flex justify-content-end align-items-center mx-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 					<i class="fas fa-caret-down fa-dropdown fa-lg"></i>
 					<img src="/images/user.png" class="nav-user" alt="">
 				</a>
 				<div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="{{ path('app_login') }}">
-						<i class="fas fa-sign-in-alt fa-fw"></i>Se connecter</a>
-					<a class="dropdown-item" href="{{ path('client') }}">
-						<i class="fas fa-user-plus fa-fw"></i>S'inscrire</a>
+					{% if app.user.client.id is defined %}
+						<a class="dropdown-item" href="{{ path('espace_profile') }}">
+							<i class="fas fa-sign-in-alt fa-fw"></i>Mon compte
+						</a>
+					{% else %}
+						<a class="dropdown-item" href="{{ path('app_login') }}">
+							<i class="fas fa-sign-in-alt fa-fw"></i>Se connecter
+						</a>
+						<a class="dropdown-item" href="{{ path('client') }}">
+							<i class="fas fa-user-plus fa-fw"></i>S'inscrire
+						</a>
+					{% endif %}
 				</div>
 			</div>
 		</div>
