@@ -26,6 +26,7 @@ body {
   #container{
     width:400px;
     margin:0 auto;
+    padding-top: 50%;
     margin-top:10%;
     margin-right:10%
   }
@@ -103,11 +104,10 @@ body {
 
   .navbar ul li a {
     color: #fff;
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   .navbar ul li a:hover {
-    background: #fff;
     color: #000;
-    font-size: 2rem;
+    font-size: 1rem;
   }
