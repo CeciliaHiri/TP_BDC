@@ -96,3 +96,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 15px 70px 70px 100px;
   }
+
+  .card-img-top {
+    width: 80%;
+  }

@@ -9,6 +9,8 @@ use App\Repository\StationRepository;
 use App\Repository\ConsommationRepository;
 use App\Repository\ClientRepository;
 use App\Entity\Consommation;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class EspaceProfileController extends AbstractController
 {
@@ -17,14 +19,22 @@ class EspaceProfileController extends AbstractController
      */
     public function index(ConsommationRepository $consommationRepository): Response
     {
+        if (is_null($this->getUser())) {
+            return $this->redirectToRoute('login');
+        }
         $user = $this->getUser();
-        $client = $user->getClient();
-        $conso = $consommationRepository->findBy(['client' => $client]);
+        if ($this->getUser()->getRoles() === ['ROLE_USER']) {
+            $client = $user->getClient();
+            $conso = $consommationRepository->findBy(['client' => $client]);
 
-        return $this->render('espace_profile/index.html.twig', [
-            'conso' => $conso,
+            return $this->render('espace_profile/index.html.twig', [
+            'consos' => $conso,
             'client' => $client,
-        ]);
+            ]);
+        }
+        if ($this->getUser()->getRoles() === ['ROLE_ADMIN','ROLE_USER']) {
+            return $this->redirectToRoute('admin');
+        }
     }
 
     /**
@@ -33,8 +43,11 @@ class EspaceProfileController extends AbstractController
     public function DataConso(ConsommationRepository $consommationRepository): Response
     {
         return $this->render('espace_profile/index.html.twig', [
-            'consommations' => $consommationRepository->findAll(),
+            'quantite' => $consommationRepository->findBy(['conso' => $conso]),
+            'date_heure_connexion' => $consommationRepository->findBy(['conso' => $conso]),
+            'date_heure_deconnexion' => $consommationRepository->findBy(['conso' => $conso]),
         ]);
+      
     }
 
     /**
