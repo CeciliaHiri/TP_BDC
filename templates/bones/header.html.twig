@@ -1,0 +1,39 @@
+<header>
+
+	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+
+		<a class="navbar-brand d-flex align-items-center justify-content-start mx-5" href="{{ path('index') }}">
+			<img src="/images/logo_ecostation2.jpg" class="nav-logo mx-2" alt="">
+			<h1 class="nav-title">BDC</h1>
+		</a>
+
+		<div class="collapse navbar-collapse justify-content-end mx-5" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{{ path('index') }}">Accueil</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="user/espaceProfile">Espace Client</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{{ path('map') }}">Map</a>
+				</li>
+			</ul>
+			<div class="dropdown">
+				<a class="d-flex justify-content-end align-items-center mx-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="fas fa-caret-down fa-dropdown fa-lg"></i>
+					<img src="/images/user.png" class="nav-user" alt="">
+				</a>
+				<div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="{{ path('app_login') }}">
+						<i class="fas fa-sign-in-alt fa-fw"></i>Se connecter</a>
+					<a class="dropdown-item" href="{{ path('client') }}">
+						<i class="fas fa-user-plus fa-fw"></i>S'inscrire</a>
+				</div>
+			</div>
+		</div>
+
+	</nav>
+
+
+</header>
