@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\StationRepository;
 use App\Repository\ConsommationRepository;
 use App\Repository\ClientRepository;
-
+use App\Entity\Consommation;
 
 class EspaceProfileController extends AbstractController
 {
@@ -17,45 +17,18 @@ class EspaceProfileController extends AbstractController
      */
     public function index(): Response
     {
-        $user = $this->security->getUser();
+        $user = $this->getUser();
+        if (getUser === NULL) {
+            # code...
+        }
+        //si getUser === NULL, retour login
         $client = $user->getClient();
+        $conso = $consommationRepository->findBy(['client' =>$client]);
+      
 
         return $this->render('espace_profile/index.html.twig', [
-            'controller_name' => 'Espace Client - Bornes Electriques',
-
-        ]);
-    }
-
-    /**
-     * @Route("/user/espaceProfileConso", name="espace_profile_conso")
-     */
-    public function DataConso(ConsommationRepository $consommationRepository): Response
-    {
-        return $this->render('espace_profile/index.html.twig',[
-            'consommations' => $consommationRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/user/espaceProfileStation", name="espace_profile_station")
-     */
-    public function DataStation(StationRepository $stationRepository): Response
-    {
-        return $this->render('espace_profile/index.html.twig',[
-            'nom_station' => $StationRepository->findBy(['station' => $station]),
-            'adresse_station' => $StationRepository->findBy(['station' => $station]),
-            'tarification' => $StationRepository->findBy(['station' => $station]),
-
-        ]);
-    }
-
-    /**
-     * @Route("/user/espaceProfileStation", name="espace_profile_station")
-     */
-    public function DataClient(Clients $clients, ClientRepository $clientRepository): Response
-    {
-        return $this->render('espace_profile/index.html.twig',[
-            'prenom' => $ClientRepository->findBy(['clients' => $clients]),
+            'conso' => $conso,
+            'client' =>$client,
 
 
         ]);
