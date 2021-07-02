@@ -60,9 +60,6 @@ class ClientController extends AbstractController
             $this->entityManager->flush();
             return $this->redirectToRoute('');
         }
-
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $user = $this->getUser();
         
         return $this->render('client/index.html.twig', [
             'client_form' => $form->createView(),
