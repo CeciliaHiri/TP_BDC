@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\StationRepository;
 use App\Repository\ConsommationRepository;
 use App\Repository\ClientRepository;
+use App\Entity\Consommation;
 
 class EspaceProfileController extends AbstractController
 {
