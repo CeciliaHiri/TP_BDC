@@ -6,48 +6,97 @@
 {% block main %}
 
 	<div class="example-wrapper">
-		<h1>Bonjour</h1>
+		<h1>Mon profil</h1>
 	</div>
 
 	<h3>Bienvenue dans votre espace</h3>
 
-	<main>
-		<div class="card" style="width:20rem;">
-			<img class="card-img-top" src="./../../public/assets/images/profile.gif/100px180/" alt="Card image profile">
-			<div class="card-body">
-				<h5 class="card-title">Mathieu</h5>
-				<p class="card-text">Date contrat :
-				</p>
-				<a href="#" class="btn btn-success">Gérer mes informations</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="card">
-					<h5 class="card-header">Consulter mes factures</h5>
-					<div class="card-body">
-						<h5 class="card-title">Ma facture du mois</h5>
-						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-						<a href="{{ path('espace_profile') }}" class="btn btn-success">Mes factures</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="card">
-					<h5 class="card-header">Mes bornes favorites</h5>
-					<div class="card-body">
-						<h5 class="card-title">Special title treatment</h5>
-						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-						<a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+<main>
+<div class="row">
+  <div class="col-lg-8 col-sm-12 mb-4">
+    <div class="card shadow-lg w-100" style="width:20rem;">
+        <img class="card-img-top" src="./public/assets/images/profile.gif" alt="Card image profile">
+            <div class="card-body">
+                {# <h5 class="card-title text-success">	{{ consommation.quantite }}</h5> #}
+                <p class="card-text">Date de début de contrat :  </p>
+                <a href="#" class="btn btn-success">Gérer mes informations</a>
+            </div>
+    </div>
+  </div>
+</div>
+
+    <br>
+
+</main>
+<div class="row">
+  <div class="col-lg-4 col-sm-12 mb-4">
+    <div class="card shadow-lg">
+        <h5 class="card-header">Consulter mes factures</h5>
+      <div class="card-body">
+        <h5 class="card-title">Ma facture du mois</h5>
+        <a href="{{ path('espace_profile') }}" class="card-text">Voir</a><br>
+        <a href="{{ path('espace_profile') }}" class="btn btn-success mt-3">Mes factures</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-12 mb-4">
+    <div class="card shadow-lg">
+        <h5 class="card-header">Mes bornes favorites</h5>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-2 col-sm-12 mb-4">
+    <div class="card shadow-lg">
+        <h5 class="card-header">Ma consommation d'énergie</h5>
+      <div class="card-body">
+        <h5 class="card-title">30 en kWh</h5>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-2 col-sm-12 mb-4">
+    <div class="card shadow-lg">
+        <h5 class="card-header">Mon temps passé à la borne</h5>
+      <div class="card-body">
+        <h5 class="card-title">3h10</h5>
+      </div>
+    </div>
+  </div>
 
 
-	{% for conso in consommations %}
-		{{ conso.quantite }}
+<div class="col-lg-4 col-sm-12 mb-4">
+    <div class="card shadow-lg">
+        <h5 class="card-header">Ma dernière borne utilisée</h5>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+
+
+	{% for consom in consommation %}
+  <li>
+		{{ consom.quantite }}
+  </li>
+    <li>
+		{{ consom.dateHeureConnexion|format_datetime('medium', 'short') }}
+  </li>
+    <li>
+		{{ consom.dateDebutContrat|format_datetime('medium', 'short') }}
+  </li>
 	{% endfor %}
 
 {% endblock %}
