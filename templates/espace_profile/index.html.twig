@@ -18,22 +18,24 @@
       <div class="card shadow-lg" style="width:25rem;">
         <img class="card-img-top" src="../assets/images/profile.png" alt="Card image profile">
             <div class="card-body">
-                {# <h5 class="card-title text-success">	{{ consommation.quantite }}</h5> #}
+               
                 <h3>
                   {{ client.nom }}
                 </h3>
                 <h3>
                   {{ client.prenom }}
                 </h3>
-                <p class="card-text">Date de début de contrat :  </p>
+               
+                {# <p class="card-text">Date de début de contrat : {{ conso.dateDebutContrat|format_datetime('medium', 'short') }} </p> #}
                 <a href="#" class="btn btn-success">Gérer mes informations</a>
+                
             </div>
       </div>
     </div>
   </div>
 
-
-  <div class="col-4">
+<div class="col-8">
+  <div class="">
     <div class="mb-4">
       <div class="card shadow-lg">
           <h5 class="card-header">Consulter mes factures</h5>
@@ -103,7 +105,7 @@
   </div>
 
 
-  <div class="col-4">
+  <div class="">
     <div class="mb-4">
       <div class="card shadow-lg">
         <h5 class="card-header">Ma consommation d'énergie</h5>
@@ -119,10 +121,10 @@
                 </tr>
               </thead>
                 <tr>
-                {# <th scope="row">{{ conso.station_id }}</th> #}
+                <th scope="row">#</th>
                 <td>{{ conso.quantite }}</td>
                 <td>{{ conso.dateHeureConnexion|format_datetime('medium', 'short') }}</td>
-                <td>{{ conso.dateDebutContrat|format_datetime('medium', 'short') }}</td>
+                <td>{{ conso.dateHeureDeconnexion|format_datetime('medium', 'short') }}</td>
                 </tr>
 
               <tbody> 
@@ -137,19 +139,41 @@
   
   
 
-  <div class="col-4">
+  <div class="">
     <div class="mb-4">
       <div class="card shadow-lg">
         <h5 class="card-header">Mes bornes favorites</h5>
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="{{ path('espace_profile') }}" class="btn btn-success">Mes bornes</a>
+            <div class="d-flex justify-content-betwween">
+
+    
+    <div class="card m-1" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">SDEEG</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Dernière visite : 08/06/21</h6>
+        <p class="card-text">28 Place de la mairie, 45678 Mormant</p>
+        <a href="#" class="card-link">Supprimer</a>
+        <a href="#" class="card-link">Go</a>
+      </div>
+    </div>
+
+    <div class="card m-1" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">LANGON</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Dernière visite : 02/06/21</h6>
+        <p class="card-text">4 Rue de Gascogne, 31330 Merville</p>
+        <a href="#" class="card-link">Supprimer</a>
+        <a href="#" class="card-link">Go</a>
+      </div>
+    </div>
+  </div>
+
           </div>
       </div>
     </div>
   </div>
 
+</div>
 
 </div>      
 </main> 
