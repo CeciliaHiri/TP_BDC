@@ -6,16 +6,16 @@
 {% block main %}
 	<main>
 
-		<div class="container m-5 shadow">
-			<h1>Charger votre voiture électrique n'importe où avec nous</h1>
-			<h3>Trouver des bornes pres de chez vous et apprennez-en plus sur votre consomation grace à notre application</h3>
+		<div class="container shadow">
+			<h1 class="mt-5">Chargez votre véhicule électrique n'importe où avec nous !</h1>
+			<h3>Trouver des bornes près de chez vous et apprennez-en plus sur votre consommation grâce à notre application.</h3>
 			<a href="{{ path('client') }}" class="sm-text mx-auto mb-3">
 				<button class="btn btn btn-success">Créez votre compte</button>
 			</a>
 		</div>
 	</main>
 
-	<div class="bg-white d-flex justify-content-around">
+	<div class="bg-white d-flex justify-content-around pt-5">
 
 		<div class="card text-white bg-success m-3" style="max-width: 18rem;">
 			<div class="card-header">Et quand il n'y en a plus...</div>
@@ -26,9 +26,9 @@
 		</div>
 
 		<div class="card text-white bg-success m-3" style="max-width: 18rem;">
-			<div class="card-header">La confiance sa se gagne...</div>
+			<div class="card-header">La confiance ça se gagne...</div>
 			<div class="card-body">
-				<h5 class="card-title">Mais surtout sa se mérite !</h5>
+				<h5 class="card-title">Mais surtout ça se mérite !</h5>
 				<p class="card-text">Chez BDC on est clair, c'est satisfait ou remboursé, pas de blabla ,sous 15j.</p>
 			</div>
 		</div>
@@ -42,6 +42,10 @@
 		</div>
 
 	</div>
+
+  <div class="bg-white d-flex justify-content-around">
+<h2 class="m-5 p-5 text-muted border-top"><em> Nos Bornes actuellement Disponible. </em></h2>
+</div>
 
 
 	<div id="maCarte" data-station="{{ station|json_encode|e('html_attr') }}"></div>
