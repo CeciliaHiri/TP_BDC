@@ -47,7 +47,6 @@
       var marker = [];
       for (let station in stations) {
         s = JSON.parse(stations[station])
-        console.log(s);
         marker[i] = L.marker([s.positionx, s.positiony]).addTo(carte);
         marker[i].bindPopup("Nbre de bornes: "+s.Nb_bornes+"<br>Adresse: "+s.adresse_station);
         i++;
