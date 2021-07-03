@@ -13,103 +13,104 @@
 
 <div class="container row d-flex">
 	<div class="col-4">
+			
 		<div class="card shadow-lg" style="width:25rem;">
 			<img class="card-img-top" src="../assets/images/profile.png" alt="Card image profile">
+			
 			<div class="card-body">
-
+				
 				<h3>
-					{{ client.nom }}
+					{{ clients.nom }}
 				</h3>
 				<h3>
-					{{ client.prenom }}
+					{{ clients.prenom }}
 				</h3>
 
 				{# <p class="card-text">Date de début de contrat : {{ conso.dateDebutContrat|format_datetime('medium', 'short') }} </p> #}
 				<a href="#" class="btn btn-success">Gérer mes informations</a>
-
+				
 			</div>
+		
 		</div>
+		
 	</div>
-</div>
+
 
 <div class="col-8">
-	<div class="card shadow-lg">
-		<h5 class="card-header">Consulter mes factures</h5>
-		<div class="card-body">
-			<div
-				class="accordion accordion-flush" id="accordionFlushExample">
-				<!-- Première facture -->
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="flush-headingThree">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-							Facture - Juin 2021
-						</button>
-					</h2>
-					<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-						<div class="accordion-body">
-							<h4>Facture du 01/06/21 au 30/06/21</h4><br>
-							Véhicule : Tesla CyberTruck
-							<br>
-							Consommation : 80,7 kWh
-							<br>
-							Temps de Charge : 18h
-							<br>
-							Montant TTC : 58,31€
-						</div>
-					</div>
-				</div>
-				<!-- Deuxième facture -->
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="flush-headingTwo">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-							Facture - Mai 2021
-						</button>
-					</h2>
-					<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-						<div class="accordion-body">
-							<h4>Facture du 01/05/21 au 31/05/21</h4><br>
-							Véhicule : BMW i4
-							<br>
-							Consommation : 80,7 kWh
-							<br>
-							Temps de Charge : 14h
-							<br>
-							Montant TTC : 39,96€
-						</div>
-					</div>
-				</div>
-				<!-- Troisième facture -->
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="flush-headingOne">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-							Facture - Avril 2021
-						</button>
-					</h2>
-					<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-						<div class="accordion-body">
-							<h4>Facture du 01/04/21 au 30/04/21</h4><br>
-							Véhicule : BMW i8
-							<br>
-							Consommation : 80,7 kWh
-							<br>
-							Temps de Charge : 16h
-							<br>
-							Montant TTC : 45,56€
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="card shadow-lg mb-4">
+  		<h5 class="card-header">Consulter mes factures</h5>
+  			<div class="card-body">
+    		
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <!-- Première facture -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Facture - Juin 2021
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <h4>Facture du 01/06/21 au 30/06/21</h4><br>
+          Véhicule : Tesla CyberTruck <br>
+          Consommation : 80,7 kWh <br>
+          Temps de Charge : 18h <br>
+          Montant TTC : 58,31€
+        </div>
+      </div>
+    </div>
+    <!-- Deuxième facture -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Facture - Mai 2021
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <h4>Facture du 01/05/21 au 31/05/21</h4><br>
+          Véhicule : BMW i4 <br>
+          Consommation : 80,7 kWh <br>
+          Temps de Charge : 14h <br>
+          Montant TTC : 39,96€
+        </div>
+      </div>
+    </div>
+    <!-- Troisième facture -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Facture - Avril 2021
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <h4>Facture du 01/04/21 au 30/04/21</h4><br>
+          Véhicule : BMW i8 <br>
+          Consommation : 80,7 kWh <br>
+          Temps de Charge : 16h <br>
+          Montant TTC : 45,56€
+        </div>
+      </div>
+    </div>
+  </div>
+ 			</div>
 	</div>
-</div>
-<div class="card shadow-lg">
-	<h5 class="card-header">Ma consommation d'énergie</h5>
-	<div class="card-body">
-		<table class="table">
+
+<div class="card shadow-lg mb-4">
+  <h5 class="card-header">Ma consommation d'énergie</h5>
+  <div class="card-body">
+    <table class="table">
 			{% for conso in consos %}
 				<thead>
 					<tr>
-						<th scope="col">Catégorie</th>
+						<th scope="col">Station</th>
 						<th scope="col">Energie consommée
 						</th>
 						<th scope="col">Date et heure connexion
@@ -126,33 +127,45 @@
 				<tbody></tbody>
 		  {% endfor %}
 	  </table>
-
-	<div class="card shadow-lg">
-		<h5 class="card-header">Mes bornes favorites</h5>
-		<div class="card-body">
-			<div class="d-flex justify-content-betwween">
-
-
-				<div class="card m-1" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">SDEEG</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Dernière visite : 08/06/21</h6>
-						<p class="card-text">28 Place de la mairie, 45678 Mormant</p>
-						<a href="#" class="card-link">Supprimer</a>
-						<a href="#" class="card-link">Go</a>
-					</div>
-				</div>
-
-				<div class="card m-1" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">LANGON</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Dernière visite : 02/06/21</h6>
-						<p class="card-text">4 Rue de Gascogne, 31330 Merville</p>
-						<a href="#" class="card-link">Supprimer</a>
-						<a href="#" class="card-link">Go</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  </div>
 </div>
+
+
+<div class="card shadow-lg mb-4">
+  <h5 class="card-header">Mes dernières bornes de recharges</h5>
+  <div class="card-body">
+    <div class="d-flex justify-content-betwween">
+    <div class="card m-1" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">IZIVIA</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Dernière visite : 12/06/21</h6>
+        <p class="card-text">13 Rue du Général de Gaulle, 23463 Trilport</p>
+        <a href="#" class="card-link">Supprimer</a>
+        <a href="#" class="card-link">Go</a>
+      </div>
+    </div>
+    <div class="card m-1" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">SDEEG</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Dernière visite : 08/06/21</h6>
+        <p class="card-text">28 Place de la mairie, 45678 Mormant</p>
+        <a href="#" class="card-link">Supprimer</a>
+        <a href="#" class="card-link">Go</a>
+      </div>
+    </div>
+    <div class="card m-1" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">LANGON</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Dernière visite : 02/06/21</h6>
+        <p class="card-text">4 Rue de Gascogne, 31330 Merville</p>
+        <a href="#" class="card-link">Supprimer</a>
+        <a href="#" class="card-link">Go</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock %} 

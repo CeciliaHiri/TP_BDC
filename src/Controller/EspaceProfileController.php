@@ -29,7 +29,7 @@ class EspaceProfileController extends AbstractController
 
             return $this->render('espace_profile/index.html.twig', [
             'consos' => $conso,
-            'client' => $client,
+            'clients' => $client,
             ]);
         }
         if ($this->getUser()->getRoles() === ['ROLE_ADMIN','ROLE_USER']) {
