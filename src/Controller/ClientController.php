@@ -45,7 +45,7 @@ class ClientController extends AbstractController
             $this->entityManager->persist($client);
             $this->entityManager->flush();
 
-            //créée l'utilisateur
+            //créé l'utilisateur
             $user = new Admin();
             $user->setUsername($request->request->get('client_form')['username']);
             $user->setClient($client);

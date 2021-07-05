@@ -22,6 +22,7 @@ class EspaceProfileController extends AbstractController
         if (is_null($this->getUser())) {
             return $this->redirectToRoute('login');
         }
+        // s'assure de la sécurité de la route client
         $user = $this->getUser();
         if ($this->getUser()->getRoles() === ['ROLE_USER']) {
             $client = $user->getClient();
@@ -32,6 +33,7 @@ class EspaceProfileController extends AbstractController
             'clients' => $client,
             ]);
         }
+        // pour des tests, j'ai les 2 rôles user et admin
         if ($this->getUser()->getRoles() === ['ROLE_ADMIN','ROLE_USER']) {
             return $this->redirectToRoute('admin');
         }
